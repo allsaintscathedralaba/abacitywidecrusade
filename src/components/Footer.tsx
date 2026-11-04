@@ -12,22 +12,18 @@ export const Footer: React.FC<FooterProps> = ({ onOpenFlyer }) => {
   };
 
   return (
-    <footer className="bg-crusade-navy-950 border-t border-white/10 pt-16 pb-12 text-slate-300 relative overflow-hidden">
-      
-      {/* Subtle background glow */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-48 bg-crusade-royal-600/10 rounded-full blur-[140px] pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <footer className="bg-crusade-navy-950 border-t border-white/10 pt-16 pb-12 text-slate-300 font-sans">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-white/10">
           
           {/* Brand & Diocesan Entity */}
           <div className="lg:col-span-5 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-12 h-16 flex-shrink-0">
+              <div className="w-14 h-16 flex-shrink-0 bg-white/95 p-1 rounded-xl shadow-md border border-crusade-gold-500/40 flex items-center justify-center">
                 <img
                   src="/assets/diocese-logo.png"
-                  alt="Diocese Logo"
+                  alt="Diocese of Aba Ngwa North Logo"
                   className="w-full h-full object-contain"
                 />
               </div>
@@ -35,7 +31,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenFlyer }) => {
                 <span className="text-[10px] font-bold uppercase tracking-wider text-crusade-gold-400 block">
                   Organizing Body
                 </span>
-                <h4 className="font-display font-extrabold text-lg text-white leading-tight">
+                <h4 className="font-black text-lg text-white leading-tight uppercase">
                   {EVENT_DATA.organizer}
                 </h4>
                 <p className="text-xs text-slate-400">Church of Nigeria (Anglican Communion)</p>
@@ -46,11 +42,11 @@ export const Footer: React.FC<FooterProps> = ({ onOpenFlyer }) => {
               The Aba Citywide Crusade 2026 is an interdenominational revival mandate dedicated to preaching the unadulterated Word of God, spiritual awakening, and sound biblical discernment.
             </p>
 
-            <div className="p-3.5 rounded-2xl bg-white/[0.03] border border-white/5 space-y-1.5 text-xs text-slate-300">
-              <p className="font-bold text-white uppercase text-[11px] tracking-wider text-crusade-orange-400">
+            <div className="p-3.5 rounded-xl bg-crusade-navy-900 border border-white/10 space-y-1 text-xs">
+              <p className="font-extrabold text-crusade-orange-400 uppercase text-[11px] tracking-wider">
                 Event Mandate
               </p>
-              <p className="font-display font-semibold text-white">
+              <p className="font-bold text-white">
                 {EVENT_DATA.theme} — {EVENT_DATA.scriptureReference}
               </p>
             </div>
@@ -58,7 +54,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenFlyer }) => {
 
           {/* Quick Links */}
           <div className="lg:col-span-3 space-y-3">
-            <h5 className="font-display text-sm font-bold uppercase tracking-wider text-white">
+            <h5 className="text-sm font-bold uppercase tracking-wider text-white">
               Navigation
             </h5>
             <ul className="space-y-2 text-xs sm:text-sm">
@@ -81,12 +77,12 @@ export const Footer: React.FC<FooterProps> = ({ onOpenFlyer }) => {
                 <a href="#venue" className="hover:text-crusade-orange-400 transition-colors">Venue & Directions</a>
               </li>
               <li>
-                <a href="#register" className="hover:text-crusade-orange-400 transition-colors">Registration & Attendance</a>
+                <a href="#register" className="hover:text-crusade-orange-400 transition-colors">Registration & Passes</a>
               </li>
               <li>
                 <button
                   onClick={onOpenFlyer}
-                  className="hover:text-crusade-gold-300 transition-colors text-left font-semibold text-crusade-orange-400"
+                  className="hover:text-crusade-gold-300 transition-colors text-left font-bold text-crusade-orange-400"
                 >
                   View Official Flyer
                 </button>
@@ -96,7 +92,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenFlyer }) => {
 
           {/* Event Details Summary */}
           <div className="lg:col-span-4 space-y-4">
-            <h5 className="font-display text-sm font-bold uppercase tracking-wider text-white">
+            <h5 className="text-sm font-bold uppercase tracking-wider text-white">
               Crusade Information
             </h5>
 
@@ -105,7 +101,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenFlyer }) => {
                 <Calendar className="w-4 h-4 text-crusade-orange-400 flex-shrink-0 mt-0.5" />
                 <div>
                   <span className="text-white font-bold block">{EVENT_DATA.dates}</span>
-                  <span className="text-slate-400 text-xs">Daily by 4:00 PM</span>
+                  <span className="text-slate-400 text-xs">4:00 PM Daily</span>
                 </div>
               </div>
 
@@ -141,20 +137,20 @@ export const Footer: React.FC<FooterProps> = ({ onOpenFlyer }) => {
 
         </div>
 
-        {/* Bottom Bar & Back To Top */}
+        {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <div>
             &copy; {new Date().getFullYear()} {EVENT_DATA.organizer}. All rights reserved.
           </div>
 
           <div className="flex items-center gap-4">
-            <span className="text-slate-400">
-              Aba Citywide Crusade 2026
+            <span className="text-slate-300 font-bold">
+              ABA CITYWIDE CRUSADE 2026
             </span>
             <button
               onClick={scrollToTop}
-              className="p-2.5 rounded-xl bg-crusade-navy-900 hover:bg-crusade-orange-600 border border-white/10 hover:border-crusade-orange-500 text-white transition-all shadow-md group"
-              title="Back to top of page"
+              className="p-2.5 rounded-xl bg-crusade-navy-900 hover:bg-crusade-orange-600 border border-white/10 text-white transition-all shadow-md group"
+              title="Back to top"
               aria-label="Back to top"
             >
               <ArrowUp className="w-4 h-4 group-hover:-translate-y-0.5 transition-transform" />
