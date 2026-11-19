@@ -2,39 +2,50 @@ import React, { useState } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
-import { ThemeSection } from './components/ThemeSection';
-import { Programme } from './components/Programme';
-import { Ministers } from './components/Ministers';
-import { Venue } from './components/Venue';
+import { WhatToExpect } from './components/WhatToExpect';
+import { EventDetails } from './components/EventDetails';
 import { Registration } from './components/Registration';
-import { CTASection } from './components/CTASection';
+import { FinalCTA } from './components/FinalCTA';
 import { Footer } from './components/Footer';
 import { FlyerModal } from './components/FlyerModal';
+import { useScrollReveal } from './hooks/useScrollReveal';
 
 export const App: React.FC = () => {
   const [flyerModalOpen, setFlyerModalOpen] = useState(false);
 
+  // Initialize smooth scroll reveal animations
+  useScrollReveal();
+
   return (
-    <div className="min-h-screen bg-crusade-navy-950 text-slate-100 flex flex-col font-sans selection:bg-crusade-orange-500 selection:text-white">
+    <div className="min-h-screen bg-slate-950 text-slate-100 font-sans selection:bg-orange-500 selection:text-white antialiased">
       {/* Navigation Header */}
       <Navbar onOpenFlyer={() => setFlyerModalOpen(true)} />
 
-      {/* Main Single Page Sections */}
-      <main className="flex-1">
+      {/* Main Continuous Single Page Experience */}
+      <main>
+        {/* Section A: Hero / Landing Section */}
         <Hero onOpenFlyer={() => setFlyerModalOpen(true)} />
+
+        {/* Section B: About the Crusade */}
         <About />
-        <ThemeSection />
-        <Programme />
-        <Ministers />
-        <Venue />
+
+        {/* Section C: What to Expect */}
+        <WhatToExpect />
+
+        {/* Section D: Event Details */}
+        <EventDetails />
+
+        {/* Section E: Registration / Participation */}
         <Registration />
-        <CTASection />
+
+        {/* Section F: Final Call to Action */}
+        <FinalCTA />
       </main>
 
-      {/* Footer Section */}
+      {/* Section G: Footer */}
       <Footer onOpenFlyer={() => setFlyerModalOpen(true)} />
 
-      {/* Modal for official flyer viewing */}
+      {/* Full-resolution official flyer modal */}
       <FlyerModal
         isOpen={flyerModalOpen}
         onClose={() => setFlyerModalOpen(false)}
