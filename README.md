@@ -1,10 +1,25 @@
-# ABA CITYWIDE CRUSADE 2026 — Modern One-Page Landing Website
+# ABA CITYWIDE CRUSADE 2026 — Minimal, Image-Driven Event Landing Page
 
-![Aba Citywide Crusade 2026 Flyer](public/assets/crusade-flyer.jpg)
+![Aba Citywide Crusade Mega Rally](public/assets/mega-rally-bus.jpg)
 
-A clean, modern, minimal, responsive, single-page landing website for the **ABA CITYWIDE CRUSADE 2026**, organized by the **Diocese of Aba Ngwa North (Anglican Communion)**.
+A minimal, image-first, modern event campaign landing page designed and built for the **ABA CITYWIDE CRUSADE 2026**, organized by the **Diocese of Aba Ngwa North (Anglican Communion)**.
 
-The website is crafted as a direct digital extension of the official crusade flyer, reproducing its exact color palette, typography hierarchy, spiritual atmosphere, and editorial layout without unnecessary visual clutter or container boxes.
+---
+
+## 📸 Design Philosophy: 85–90% Visuals, 10–15% Text
+
+The website is crafted as a premium event campaign website rather than a conventional text-heavy church site. It tells the story of the crusade primarily through breathtaking, high-quality event photography, horizontal carousels, and minimal text overlays.
+
+### Key Characteristics:
+- **Full-Width Photographic Sections:** Dramatic, high-contrast imagery capturing massive worship crowds, ministers preaching, believers in prayer, and youth campaign mobilization.
+- **Dual Horizontal Image Carousels:**
+  - *Worship & Crusade Experience Carousel:* Massive crowds, hands raised in praise, preaching, and fervent prayer.
+  - *Citywide Revival in Motion Carousel:* Mega rally bus mobilization, sunglasses reflection artwork, ministers conference auditorium, and open scriptures.
+  - Features smooth automatic looping, manual prev/next navigation buttons, mobile touch/swipe support, and pause-on-hover interaction.
+- **Unboxed, Minimal Layout:** Zero rounded cards or container boxes cluttering the text. Content flows naturally with generous spacing and large, elegant typography.
+- **Official Flyer Colour Palette:** Deep midnight navy (`#060d1f`), royal blue (`#1e3a8a`), warm sunset orange (`#ea580c`), and crisp white/slate.
+- **Typography:** `Roboto` applied throughout in expressive, high-contrast weights.
+- **Scroll Reveal Transitions:** Lightweight Intersection Observer animations where sections smoothly emerge with subtle upward translation and fade-in effects.
 
 ---
 
@@ -28,48 +43,44 @@ The website is crafted as a direct digital extension of the official crusade fly
 
 ---
 
-## 🎨 Visual Identity & Design Direction
+## 🏛️ Page Structure
 
-- **Exact Color Palette from Flyer:**
-  - **Deep Midnight Navy:** `#060d1f` & `#0a1738` *(Flyer stadium night atmosphere)*
-  - **Sunset Warm Orange:** `#ea580c` & `#d9531e` *(Flyer accent and date badge color)*
-  - **Royal Anglican Blue:** `#1e3a8a` & `#1d4ed8` *(Flyer time & venue badge color)*
-  - **Clean Slate / Crisp Off-White:** `#f8fafc` & `#ffffff` *(High-contrast editorial reading)*
-- **Typography:**
-  - **Roboto font applied throughout** in clean weights (300, 400, 500, 700, 900).
-- **Minimal, Unboxed Layout:**
-  - Avoided unnecessary cards, heavy shadows, and rounded container boxes.
-  - Generous spacing, bold expressive typography, and continuous visual storytelling.
-- **Scroll Reveal Animations:**
-  - Smooth upward entrance and subtle fade-ins using Intersection Observer and CSS transitions.
-  - Respects `prefers-reduced-motion` for accessibility.
+1. **Simple Navigation Bar (`Navbar.tsx`):**
+   - Left: Official Diocese crest logo.
+   - Right: Minimal links (`Home`, `About`, `Event Details`), and a prominent `REGISTER NOW` CTA button.
+2. **Section 1: Hero (`Hero.tsx`):**
+   - Full-screen opening with massive congregation praise background (`/assets/congregation-praise.jpg`).
+   - Official theme *"THINK BEFORE YOU BELIEVE"* (Acts 17:11), event name, date, and `REGISTER NOW` button.
+3. **Section 2: About the Crusade (`About.tsx`):**
+   - Full-width background (`/assets/crusade-stage.jpg`) with short headline *"ONE CITY. ONE GATHERING. ONE ENCOUNTER."* and one brief supporting sentence.
+4. **Section 3: Worship & Crusade Experience (`WorshipExperience.tsx`):**
+   - Horizontal scrolling image carousel showcasing worship crowds, hands raised in praise, preachers, and prayer.
+5. **Section 4: Event Details (`EventDetails.tsx`):**
+   - Image-led section with large, elegant typography for Date, Time, Venue, and direct Google Maps link. No boxed cards.
+6. **Section 5: Crusade Image Gallery (`CrusadeGallery.tsx`):**
+   - Second horizontal image carousel featuring the youth mega rally bus, campaign reflection artwork, ministers auditorium, and scriptures.
+7. **Section 6: Final Registration Call-To-Action (`FinalCTA.tsx`):**
+   - Impactful closing visual with *"BE PART OF THIS DIVINE ENCOUNTER"* and a prominent `REGISTER NOW` button redirecting to EventRally.
+8. **Section 7: Footer (`Footer.tsx`):**
+   - Minimal footer with organizing ministry credentials and copyright.
 
 ---
 
-## 🏛️ Website Structure
+## 🚀 Registration Integration
 
-1. **Navigation:** Simple, minimal header with Diocese crest, smooth scroll links, and `REGISTER NOW` CTA.
-2. **Section A (Hero):** Bold event branding, theme *"THINK BEFORE YOU BELIEVE"* (Acts 17:11), prominent dates, time, venue, and primary CTA.
-3. **Section B (About):** Vision, purpose, and spiritual significance presented with editorial elegance and open Bible imagery.
-4. **Section C (What to Expect):** Four key spiritual pillars (*Worship*, *Word*, *Prayer*, *Encounter*) presented as clean typographic elements (01–04) rather than boxed cards.
-5. **Section D (Event Details):** Large, prominent typographic hierarchy for date, daily time, ministers conference, venue with Google Maps link, and authentic episcopal portraits of Dr. Iyke Egbuonu and Bishop Nathan Kanu.
-6. **Section E (Registration / Participation):** Clear registration call-to-action routing to EventRally with client-side validated RSVP interest form and WhatsApp invitation.
-7. **Section F (Final Call to Action):** Impactful closing invitation: *"YOUR CITY. ONE ALTAR. ONE ENCOUNTER."*
-8. **Section G (Footer):** Minimal, dignified footer with official diocesan attribution and quick links.
+All `REGISTER NOW` buttons across the website are centrally linked to the official event registration portal:
+**`https://www.geteventrally.com/events/bc7509fd-31fb-4ec1-881a-7e07f1a7ad8b`**
 
 ---
 
 ## 💻 Tech Stack & Local Setup
 
-- **Stack:** React 18, TypeScript, Vite 5, Tailwind CSS 3, Lucide React
+- **Framework:** React 18, TypeScript, Vite 5, Tailwind CSS 3, Lucide React
 - **Typography:** Roboto (Google Fonts)
 
 ### Run Locally
 ```bash
-# Install dependencies
 npm install
-
-# Start development server
 npm run dev
 ```
 Accessible at `http://localhost:5173`.
@@ -78,7 +89,6 @@ Accessible at `http://localhost:5173`.
 ```bash
 npm run build
 ```
-Generates production-ready static assets in `dist/`.
 
 ---
 

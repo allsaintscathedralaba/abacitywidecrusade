@@ -1,55 +1,46 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
-import { WhatToExpect } from './components/WhatToExpect';
+import { WorshipExperience } from './components/WorshipExperience';
 import { EventDetails } from './components/EventDetails';
-import { Registration } from './components/Registration';
+import { CrusadeGallery } from './components/CrusadeGallery';
 import { FinalCTA } from './components/FinalCTA';
 import { Footer } from './components/Footer';
-import { FlyerModal } from './components/FlyerModal';
 import { useScrollReveal } from './hooks/useScrollReveal';
 
 export const App: React.FC = () => {
-  const [flyerModalOpen, setFlyerModalOpen] = useState(false);
-
-  // Initialize smooth scroll reveal animations
+  // Initialize smooth scroll reveal transitions
   useScrollReveal();
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 font-sans selection:bg-orange-500 selection:text-white antialiased">
-      {/* Navigation Header */}
-      <Navbar onOpenFlyer={() => setFlyerModalOpen(true)} />
+    <div className="min-h-screen bg-slate-950 text-slate-100 font-sans selection:bg-orange-500 selection:text-white antialiased overflow-x-hidden">
+      {/* Minimal Navigation Header */}
+      <Navbar />
 
-      {/* Main Continuous Single Page Experience */}
+      {/* Main Single Page Sections */}
       <main>
-        {/* Section A: Hero / Landing Section */}
-        <Hero onOpenFlyer={() => setFlyerModalOpen(true)} />
+        {/* Section 1: Hero */}
+        <Hero />
 
-        {/* Section B: About the Crusade */}
+        {/* Section 2: About the Crusade */}
         <About />
 
-        {/* Section C: What to Expect */}
-        <WhatToExpect />
+        {/* Section 3: Worship & Crusade Experience (Horizontal Carousel 1) */}
+        <WorshipExperience />
 
-        {/* Section D: Event Details */}
+        {/* Section 4: Event Details */}
         <EventDetails />
 
-        {/* Section E: Registration / Participation */}
-        <Registration />
+        {/* Section 5: Crusade Image Gallery (Horizontal Carousel 2) */}
+        <CrusadeGallery />
 
-        {/* Section F: Final Call to Action */}
+        {/* Section 6: Final Registration Call-To-Action */}
         <FinalCTA />
       </main>
 
-      {/* Section G: Footer */}
-      <Footer onOpenFlyer={() => setFlyerModalOpen(true)} />
-
-      {/* Full-resolution official flyer modal */}
-      <FlyerModal
-        isOpen={flyerModalOpen}
-        onClose={() => setFlyerModalOpen(false)}
-      />
+      {/* Section 7: Minimal Footer */}
+      <Footer />
     </div>
   );
 };

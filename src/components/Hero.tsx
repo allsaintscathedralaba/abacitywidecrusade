@@ -1,121 +1,69 @@
 import React from 'react';
 import { EVENT_DATA } from '../data/eventData';
-import { ArrowUpRight, ArrowDown } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 
-interface HeroProps {
-  onOpenFlyer: () => void;
-}
-
-export const Hero: React.FC<HeroProps> = ({ onOpenFlyer }) => {
+export const Hero: React.FC = () => {
   return (
-    <section id="home" className="relative min-h-[92vh] flex items-center justify-center pt-28 pb-20 overflow-hidden bg-slate-950 font-sans text-white">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-950 font-sans text-white">
       
-      {/* Background Atmosphere directly matching the flyer top section */}
+      {/* Large Full-Screen Photographic Background */}
       <div className="absolute inset-0 z-0">
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-25 mix-blend-luminosity filter blur-[1px]"
-          style={{ backgroundImage: `url('/assets/worship-crowd.jpg')` }}
+        <img
+          src="/assets/congregation-praise.jpg"
+          alt="Massive worship congregation in praise"
+          className="w-full h-full object-cover object-center filter brightness-90 contrast-110"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-slate-950/95 to-slate-950" />
+        {/* Subtle Dark Gradient Overlay for Readability */}
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/75 to-slate-950/60" />
       </div>
 
-      <div className="relative z-10 max-w-5xl mx-auto px-6 sm:px-8 text-center flex flex-col items-center">
+      <div className="relative z-10 max-w-5xl mx-auto px-6 sm:px-8 text-center flex flex-col items-center pt-20 pb-16">
         
-        {/* Organizing Ministry Tagline */}
-        <div className="reveal-on-scroll flex items-center gap-2.5 mb-6 text-xs uppercase tracking-widest font-semibold text-orange-400">
-          <span>{EVENT_DATA.organizer}</span>
+        {/* Organizing Ministry Tag */}
+        <div className="reveal-on-scroll text-xs uppercase tracking-widest font-bold text-orange-400 mb-6">
+          {EVENT_DATA.organizer}
         </div>
 
-        {/* Event Name */}
-        <h1 className="reveal-on-scroll delay-100 text-5xl sm:text-7xl md:text-8xl font-black uppercase tracking-tight leading-[0.95] mb-4 text-white">
-          ABA CITYWIDE <br />
-          <span className="text-white">CRUSADE </span>
-          <span className="text-orange-500 font-extrabold">2026</span>
-        </h1>
-
-        {/* Theme & Scripture - Bold & Editorial */}
-        <div className="reveal-on-scroll delay-150 my-6 max-w-3xl">
-          <p className="text-xs font-bold tracking-widest uppercase text-slate-400 mb-1">
-            THEME
-          </p>
-          <div className="text-3xl sm:text-5xl md:text-6xl font-black uppercase tracking-tight text-white leading-tight">
-            &ldquo;{EVENT_DATA.theme}&rdquo;
-          </div>
-          <p className="text-sm sm:text-base font-bold tracking-widest uppercase text-orange-400 mt-2">
+        {/* Official Crusade Theme - Bold & Dominant */}
+        <div className="reveal-on-scroll delay-100 max-w-4xl mb-4">
+          <span className="text-xs uppercase tracking-widest font-bold text-slate-300 block mb-2">
+            CRUSADE THEME
+          </span>
+          <h1 className="text-4xl sm:text-6xl md:text-8xl font-black uppercase tracking-tight text-white leading-[0.95] drop-shadow-2xl">
+            THINK BEFORE <br />
+            <span className="text-orange-500">YOU BELIEVE</span>
+          </h1>
+          <p className="text-sm sm:text-base font-bold tracking-widest uppercase text-slate-300 mt-3">
             {EVENT_DATA.scriptureReference}
           </p>
         </div>
 
-        {/* Short Compelling Introductory Statement */}
-        <p className="reveal-on-scroll delay-200 text-base sm:text-xl text-slate-300 font-normal max-w-2xl leading-relaxed mb-10">
-          Join thousands of believers for four powerful days of worship, prayer, biblical teaching, and spiritual awakening in Aba.
-        </p>
-
-        {/* Key Event Details: Date, Time, Venue in Clean Minimal Editorial Hierarchy */}
-        <div className="reveal-on-scroll delay-250 w-full max-w-3xl py-6 my-2 border-t border-b border-white/15 grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
-          <div>
-            <span className="text-[11px] font-bold uppercase tracking-widest text-slate-400 block mb-1">
-              Event Date
-            </span>
-            <span className="text-lg sm:text-xl font-black text-white uppercase block">
-              2nd – 5th Dec. 2026
-            </span>
-          </div>
-
-          <div>
-            <span className="text-[11px] font-bold uppercase tracking-widest text-slate-400 block mb-1">
-              Daily Time
-            </span>
-            <span className="text-lg sm:text-xl font-black text-white uppercase block">
-              4:00 PM Daily
-            </span>
-            <span className="text-[11px] text-orange-400 font-semibold block mt-0.5">
-              Ministers Conf: Sat. 5th @ 9:00 AM
-            </span>
-          </div>
-
-          <div>
-            <span className="text-[11px] font-bold uppercase tracking-widest text-slate-400 block mb-1">
-              Crusade Venue
-            </span>
-            <span className="text-lg sm:text-xl font-black text-white uppercase block">
-              Ngwa High School
-            </span>
-            <span className="text-[11px] text-slate-300 block">
-              Playground, Aba
-            </span>
+        {/* Event Name & Date */}
+        <div className="reveal-on-scroll delay-150 my-6">
+          <p className="text-xl sm:text-3xl font-black uppercase tracking-wider text-white">
+            ABA CITYWIDE CRUSADE 2026
+          </p>
+          <div className="mt-3 inline-block px-5 py-2 bg-orange-600/90 text-white text-xs sm:text-sm font-black uppercase tracking-widest rounded">
+            {EVENT_DATA.dates} • 4:00 PM DAILY
           </div>
         </div>
 
-        {/* Primary and Secondary Action Buttons */}
-        <div className="reveal-on-scroll delay-300 mt-10 flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+        {/* Short Invitation */}
+        <p className="reveal-on-scroll delay-200 text-base sm:text-xl text-slate-200 font-normal max-w-2xl leading-relaxed mb-10">
+          Join thousands of believers for four transformative days of worship, prayer, biblical teaching, and spiritual renewal in Aba.
+        </p>
+
+        {/* REGISTER NOW Button */}
+        <div className="reveal-on-scroll delay-250">
           <a
             href={EVENT_DATA.registrationUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 text-sm font-black tracking-widest uppercase text-white bg-orange-600 hover:bg-orange-500 rounded transition-all hover:scale-[1.02] shadow-lg shadow-orange-950/40"
+            className="inline-flex items-center justify-center gap-2 px-10 py-5 text-sm sm:text-base font-black tracking-widest uppercase text-white bg-orange-600 hover:bg-orange-500 rounded transition-all hover:scale-105 shadow-2xl shadow-orange-950/60"
           >
             <span>REGISTER NOW</span>
-            <ArrowUpRight className="w-4 h-4" />
+            <ArrowUpRight className="w-5 h-5" />
           </a>
-
-          <a
-            href="#about"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 text-sm font-bold tracking-widest uppercase text-slate-300 hover:text-white border border-white/20 hover:border-white/50 rounded transition-colors"
-          >
-            <span>EXPLORE CRUSADE</span>
-            <ArrowDown className="w-4 h-4 text-slate-400" />
-          </a>
-        </div>
-
-        {/* Quick flyer trigger */}
-        <div className="reveal-on-scroll delay-400 mt-8">
-          <button
-            onClick={onOpenFlyer}
-            className="text-xs text-slate-400 hover:text-orange-400 font-medium tracking-wide underline underline-offset-4 transition-colors"
-          >
-            Click here to view official publicity flyer
-          </button>
         </div>
 
       </div>
